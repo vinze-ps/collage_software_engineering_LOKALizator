@@ -1,12 +1,20 @@
 import React from "react";
+import { FilterIcon } from "lucide-react";
 
 const Sidebar = () => {
   return (
     <div
       className={
-        "relative boder border-transparent dark:bg-black dark:border-white/[0.2] bg-white shadow-input flex justify-center space-x-4 px-8 py-4 h-full w-auto rounded-lg"
+        "shadow-sm relative border dark:bg-black dark:border-white/[0.2] bg-white shadow-input items-start justify-start space-x-4 px-8 py-4 h-full w-auto rounded-lg flex gap-2 min-w-[240px]"
       }
-    ></div>
+    >
+      <div className={"flex justify-center items-center gap-4"}>
+        <FilterIcon />
+        <h2 className="scroll-m-20 border-b text-2xl font-semibold tracking-tight transition-colors first:mt-0">
+          Filtry
+        </h2>
+      </div>
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ const Sidebar = () => {
     >
       <div className={"flex justify-center items-center gap-4"}>
         <FilterIcon />
-        <h2 className="scroll-m-20 border-b text-2xl font-semibold tracking-tight transition-colors first:mt-0">
+        <h2 className="scroll-m-20 border-b text-2xl font-semibold tracking-tight">
           Filtry
         </h2>
       </div>

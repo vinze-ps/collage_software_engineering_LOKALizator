@@ -29,7 +29,7 @@ export function Navbar({ className }: { className?: string }) {
             setActive={setActive}
             active={active}
             item="Ogłoszenia"
-            icon={<MegaphoneIcon size={"1.25rem"} />}
+            icon={<MegaphoneIcon size={"1rem"} />}
           >
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -44,7 +44,7 @@ export function Navbar({ className }: { className?: string }) {
             setActive={setActive}
             active={active}
             item="Wyszukiwanie"
-            icon={<SearchIcon size={"1.25rem"} />}
+            icon={<SearchIcon size={"1rem"} />}
           >
             <div className="  text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
@@ -77,7 +77,7 @@ export function Navbar({ className }: { className?: string }) {
             setActive={setActive}
             active={active}
             item="Moje konto"
-            icon={<UserIcon size={"1.25rem"} />}
+            icon={<UserIcon size={"1rem"} />}
           >
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink href="/hobby">Hobby</HoveredLink>

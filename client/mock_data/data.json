@@ -1,0 +1,34 @@
+{
+  "ads": [
+    {
+      "id": 1,
+      "date": "2021-06-01T12:00:00",
+      "title": "Czyszczenie laserem",
+      "description": "Oferuje nowoczesny i skuteczny sposób usuwania zanieczyszczeń z różnego rodzaju powierzchni za pomocą lasera pulsacyjnego.Wiązka laserowa skierowana na powierzchnię powoduje intensywne nagrzewanie ,parowanie lub rozkład.Jest to bardzo precyzyjna metoda ,pozwalająca kontrolować głębokość i kształt usuwanego materiału. Zastosowanie: czyszczenie - rdzy,farby, cegły, piaskowca,kamienia,lastryko,marmuru,czyszczenie graffiti,pomników ,form odlewniczych, usuwanie korozji ,renowacja zabytków - rzeźby,płaskorzeźby,portale wejściowe,obiekty sakralne. Ablacja laserowa jest bardzo bezpieczna ,ponieważ nie ma ryzyka uszkodzenia powierzchni,wszechstronna bo różnorodność powierzchni nie stanowi problemu ,ekologiczna ponieważ jest czysta i bezpyłowa.Wybierając czyszczenie laserem ,nie musimy korzystać ze ścierniwa,rozpuszczalników i chemikaliów. Zapraszam do kontaktu:Krzysztof,tel 604505805",
+      "price": "75.00",
+      "email": "barbara@gmail.com",
+      "highlighted": true,
+      "location": "Warszawa",
+      "tags": ["czyszczenie", "laser", "usługi"],
+      "imagesUrls": [
+        "https://tablica.com/userfiles/announcement/214314-czyszczenie-laserem-3.webp",
+        "https://tablica.com/userfiles/announcement/214314-czyszczenie-laserem-1.webp",
+        "https://tablica.com/userfiles/announcement/214314-czyszczenie-laserem-2.webp"
+      ]
+    },
+    {
+        "id": 2,
+        "date": "2021-06-01T12:00:00",
+        "title": "Korepetycje z matematyki",
+        "description": "Oferuję korepetycje z matematyki dla uczniów szkół podstawowych, gimnazjalnych i licealnych. Pomoc w przygotowaniu do egzaminów, sprawdzianów, kartkówek. Posiadam doświadczenie w nauczaniu matematyki. Cena do uzgodnienia. Zapraszam do kontaktu telefonicznego.",
+        "price": "50.00",
+        "email": "jankowalski21@gmail.com",
+        "highlighted": false,
+        "location": "Warszawa",
+        "tags": ["korepetycje", "matematyka", "szkoła"],
+        "imagesUrls": [
+          "https://www.korepetycje.net/components/com_djclassifieds/images/item/16/16618_mathematics_thb.png"
+        ]
+    }
+  ]
+}

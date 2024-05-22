@@ -1,14 +1,18 @@
+"use client";
 import { IAd } from "@/types";
 import { ads } from "@/mock_data/data.json";
-import Image from "next/image";
 import { LocateIcon } from "lucide-react";
 import moment from "moment";
+import { useState } from "react";
+import { Pagination } from "@nextui-org/react";
 
 const AdListItem = ({ ad }: { ad: IAd }) => {
+  const [expanded, setExpanded] = useState<boolean>(false);
+
   return (
     <div
       className={
-        "flex w-full bg-background rounded-lg p-4 shadow-sm relative border dark:bg-black dark:border-white/[0.2] bg-white shadow-input gap-4"
+        "flex w-full bg-background rounded-lg p-4 shadow-sm relative dark:bg-black bg-white shadow-input gap-4"
       }
     >
       <div>
@@ -32,11 +36,42 @@ const AdListItem = ({ ad }: { ad: IAd }) => {
           </div>
         </div>
         <h3
-          className={"scroll-m-20 text-2xl font-semibold tracking-tight mb-4"}
+          className={"scroll-m-20 text-2xl font-semibold tracking-tight my-2"}
         >
           {ad.title}
         </h3>
-        <p className={"text-default-500 text-sm"}>{ad.description}</p>
+        <p className={"text-default-500 text-sm"}>
+          {expanded ? (
+            ad.description?.length > 400 ? (
+              <>
+                {ad.description}{" "}
+                <button
+                  onClick={() => setExpanded(false)}
+                  className={"text-primary"}
+                >
+                  Pokaż mniej
+                </button>
+              </>
+            ) : (
+              ad.description
+            )
+          ) : (
+            <>
+              {ad.description?.slice(0, 400)}
+              {ad.description?.length > 400 ? (
+                <>
+                  ...{" "}
+                  <button
+                    onClick={() => setExpanded(true)}
+                    className={"text-primary"}
+                  >
+                    Pokaż więcej
+                  </button>
+                </>
+              ) : null}
+            </>
+          )}
+        </p>
       </div>
       <div
         className={"min-w-[200px] w-[200px] h-[200px] bg-default-50 rounded-lg"}
@@ -53,10 +88,20 @@ const AdListItem = ({ ad }: { ad: IAd }) => {
 
 export const AdsList = () => {
   return (
-    <div className={"w-full flex flex-col gap-4"}>
-      {(ads as IAd[]).map((ad: IAd, index) => (
-        <AdListItem key={index} ad={ad} />
-      ))}
-    </div>
+    <>
+      <div>
+        <h2 className={"text-md font-normal tracking-tight text-right mb-2"}>
+          Znalezione ogłoszenia: 2
+        </h2>
+      </div>
+      <div className={"w-full flex flex-col gap-4"}>
+        {(ads as IAd[]).map((ad: IAd, index) => (
+          <AdListItem key={index} ad={ad} />
+        ))}
+      </div>
+      <div className={"w-full flex items-center justify-center p-4 mt-8"}>
+        <Pagination total={10} initialPage={1} />
+      </div>
+    </>
   );
 };

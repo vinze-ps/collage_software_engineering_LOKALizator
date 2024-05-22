@@ -11,6 +11,7 @@ import { MegaphoneIcon, SearchIcon, UserIcon } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/lib/assets/Logo.svg";
+import { Input } from "@nextui-org/react";
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
@@ -29,47 +30,45 @@ export function Navbar({ className }: { className?: string }) {
             setActive={setActive}
             active={active}
             item="Ogłoszenia"
-            icon={<MegaphoneIcon size={"1rem"} />}
+            icon={
+              <MegaphoneIcon className={"text-default-400"} size={"1rem"} />
+            }
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/web-dev">Web Development</HoveredLink>
-              <HoveredLink href="/interface-design">
-                Interface Design
-              </HoveredLink>
-              <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-              <HoveredLink href="/branding">Branding</HoveredLink>
+              <HoveredLink href="/test1">Test1</HoveredLink>
+              <HoveredLink href="/test2">Test2</HoveredLink>
             </div>
           </MenuItem>
           <MenuItem
             setActive={setActive}
             active={active}
             item="Wyszukiwanie"
-            icon={<SearchIcon size={"1rem"} />}
+            icon={<SearchIcon className={"text-default-400"} size={"1rem"} />}
           >
-            <div className="  text-sm grid grid-cols-2 gap-10 p-4">
+            <div className={"w-100 p-4"}>
+              <Input
+                placeholder={"Wpisz wyszukiwaną frazę, kategorię..."}
+                className={"w-100"}
+              />
+            </div>
+            <div className="text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
-                title="Sample1"
+                title="Nieruchomości"
                 href="#"
-                src="https://fastly.picsum.photos/id/1035/140/70.jpg?hmac=CaJT0nocyvNAQRnzOGUct3lTMjMSDsaQtjCuaf4rz_4"
-                description="Prepare for tech interviews like never before."
+                src="https://images.pexels.com/photos/87223/pexels-photo-87223.jpeg?cs=srgb&dl=pexels-marketingtuig-87223.jpg&fm=jpg&w=640&h=387&_gl=1*1hcmyeg*_ga*Mzc1NzAxMDAwLjE3MTA5NjU0NDM.*_ga_8JE65Q40S6*MTcxNjIyNDU0Ny41LjEuMTcxNjIyNDYyNC4wLjAuMA.."
+                description="Znajdź swoje wymarzone mieszkanie"
               />
               <ProductItem
-                title="Sample2"
+                title="Praca"
                 href="#"
-                src="https://fastly.picsum.photos/id/629/140/70.jpg?hmac=nO5aPltMaPrxRbBX4MS-NM_abPMzoyHCiAB-RhrQroQ"
-                description="Production ready Tailwind css components for your next project"
+                src="https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?cs=srgb&dl=pexels-elevate-1267338.jpg&fm=jpg&w=640&h=427&_gl=1*p7pcae*_ga*Mzc1NzAxMDAwLjE3MTA5NjU0NDM.*_ga_8JE65Q40S6*MTcxNjIyNDU0Ny41LjEuMTcxNjIyNDc0My4wLjAuMA.."
+                description="Tysiące ofert pracy w jednym miejscu"
               />
               <ProductItem
-                title="Sample3"
+                title="Ogłoszenia"
                 href="#"
-                src="https://fastly.picsum.photos/id/695/140/70.jpg?hmac=GmwO0OkJ75k_m5xVXXYNN1OeYmnS5zdT_liPGR0Gwaw"
-                description="Never write from scratch again. Go from idea to blog in minutes."
-              />
-              <ProductItem
-                title="Sample4"
-                href="#"
-                src="https://fastly.picsum.photos/id/998/140/70.jpg?hmac=i2j8RXd09PE5LaK38nznSlso9sOkehzB3vfV1h-GGvY"
-                description="Respond to government RFPs, RFIs and RFQs 10x faster using AI"
+                src="https://images.pexels.com/photos/10817551/pexels-photo-10817551.jpeg?cs=srgb&dl=pexels-narcissan-10817551.jpg&fm=jpg&w=640&h=360&_gl=1*1a2vu4e*_ga*Mzc1NzAxMDAwLjE3MTA5NjU0NDM.*_ga_8JE65Q40S6*MTcxNjIyNDU0Ny41LjEuMTcxNjIyNDk3Mi4wLjAuMA.."
+                description="Kupuj i sprzedawaj w największym portalu ogłoszeniowym"
               />
             </div>
           </MenuItem>
@@ -77,13 +76,11 @@ export function Navbar({ className }: { className?: string }) {
             setActive={setActive}
             active={active}
             item="Moje konto"
-            icon={<UserIcon size={"1rem"} />}
+            icon={<UserIcon className={"text-default-400"} size={"1rem"} />}
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/hobby">Hobby</HoveredLink>
-              <HoveredLink href="/individual">Individual</HoveredLink>
-              <HoveredLink href="/team">Team</HoveredLink>
-              <HoveredLink href="/enterprise">Enterprise</HoveredLink>
+              <HoveredLink href="/test1">Test1</HoveredLink>
+              <HoveredLink href="/test2">Test2</HoveredLink>
             </div>
           </MenuItem>
         </div>

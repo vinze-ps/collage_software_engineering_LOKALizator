@@ -1,4 +1,46 @@
 {
+  "categories": [
+    {
+      "id": 1,
+      "name": "Motoryzacja",
+      "icon": "car"
+    },
+    {
+      "id": 2,
+      "name": "Nieruchomości",
+      "icon": "home"
+    },
+    {
+      "id": 3,
+      "name": "Elektronika",
+      "icon": "laptop"
+    },
+    {
+      "id": 4,
+      "name": "Sport i hobby",
+      "icon": "ball"
+    },
+    {
+      "id": 5,
+      "name": "Usługi",
+      "icon": "wrench"
+    },
+    {
+      "id": 6,
+      "name": "Praca",
+      "icon": "briefcase"
+    },
+    {
+      "id": 7,
+      "name": "Społeczność",
+      "icon": "people"
+    },
+    {
+      "id": 8,
+      "name": "Inne",
+      "icon": "question"
+    }
+  ],
   "ads": [
     {
       "id": 1,

@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Sidebar />
-      <main className="px-4 h-full w-full">
+      <main className="ps-4 h-full w-full">
         <AdsList />
       </main>
     </>

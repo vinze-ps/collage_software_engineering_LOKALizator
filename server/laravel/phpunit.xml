@@ -5,10 +5,10 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="Unit">
+        <testsuite email="Unit">
             <directory>tests/Unit</directory>
         </testsuite>
-        <testsuite name="Feature">
+        <testsuite email="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
     </testsuites>
@@ -18,15 +18,15 @@
         </include>
     </source>
     <php>
-        <env name="APP_ENV" value="testing"/>
-        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
-        <env name="BCRYPT_ROUNDS" value="4"/>
-        <env name="CACHE_STORE" value="array"/>
-        <env name="DB_DATABASE" value="testing"/>
-        <env name="MAIL_MAILER" value="array"/>
-        <env name="PULSE_ENABLED" value="false"/>
-        <env name="QUEUE_CONNECTION" value="sync"/>
-        <env name="SESSION_DRIVER" value="array"/>
-        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env email="APP_ENV" value="testing"/>
+        <env email="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env email="BCRYPT_ROUNDS" value="4"/>
+        <env email="CACHE_STORE" value="array"/>
+        <env email="DB_DATABASE" value="testing"/>
+        <env email="MAIL_MAILER" value="array"/>
+        <env email="PULSE_ENABLED" value="false"/>
+        <env email="QUEUE_CONNECTION" value="sync"/>
+        <env email="SESSION_DRIVER" value="array"/>
+        <env email="TELESCOPE_ENABLED" value="false"/>
     </php>
 </phpunit>

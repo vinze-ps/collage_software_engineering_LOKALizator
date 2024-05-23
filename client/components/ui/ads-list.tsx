@@ -74,7 +74,9 @@ const AdListItem = ({ ad }: { ad: IAd }) => {
         </p>
       </div>
       <div
-        className={"min-w-[200px] w-[200px] h-[200px] bg-default-50 rounded-lg"}
+        className={
+          "min-w-[200px] w-[200px] h-[200px] bg-default-50 rounded-lg overflow-hidden shadow-2xl"
+        }
       >
         <img
           className={"max-h-full max-w-full m-auto"}

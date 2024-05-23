@@ -85,7 +85,7 @@ export const Menu = ({
   return (
     <nav
       onMouseLeave={() => setActive(null)} // resets the appState
-      className="shadow-sm relative rounded-lg dark:bg-black bg-white shadow-input flex justify-start space-x-4 px-4 py-2 items-center"
+      className="shadow-sm relative rounded-lg dark:bg-black bg-white shadow-input flex justify-between space-x-4 px-4 py-2 items-center"
     >
       {children}
     </nav>

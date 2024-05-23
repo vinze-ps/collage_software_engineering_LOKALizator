@@ -11,6 +11,7 @@ import {
   LogOutIcon,
   MegaphoneIcon,
   SearchIcon,
+  StarIcon,
   User2Icon,
   UserIcon,
 } from "lucide-react";
@@ -38,28 +39,9 @@ export function Navbar({ className }: { className?: string }) {
           <MenuItem
             setActive={setActive}
             active={active}
-            item="Ogłoszenia"
-            icon={
-              <MegaphoneIcon className={"text-default-400"} size={"1rem"} />
-            }
+            item="Popularne"
+            icon={<StarIcon className={"text-default-400"} size={"1rem"} />}
           >
-            <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/test1">Test1</HoveredLink>
-              <HoveredLink href="/test2">Test2</HoveredLink>
-            </div>
-          </MenuItem>
-          <MenuItem
-            setActive={setActive}
-            active={active}
-            item="Wyszukiwanie"
-            icon={<SearchIcon className={"text-default-400"} size={"1rem"} />}
-          >
-            <div className={"w-100 p-4"}>
-              <Input
-                placeholder={"Wpisz wyszukiwaną frazę, kategorię..."}
-                className={"w-100"}
-              />
-            </div>
             <div className="text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem
                 title="Nieruchomości"
@@ -105,6 +87,11 @@ export function Navbar({ className }: { className?: string }) {
             </div>
           </MenuItem>
         </div>
+        <Input
+          placeholder={"Wpisz wyszukiwaną frazę, kategorię..."}
+          endContent={<SearchIcon size={"1rem"} />}
+          className={"max-w-[300px]"}
+        />
       </Menu>
     </div>
   );

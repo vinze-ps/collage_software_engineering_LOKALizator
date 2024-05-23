@@ -7,7 +7,13 @@ import {
   MenuItem,
   ProductItem,
 } from "@/components/ui/navbar-menu";
-import { MegaphoneIcon, SearchIcon, UserIcon } from "lucide-react";
+import {
+  LogOutIcon,
+  MegaphoneIcon,
+  SearchIcon,
+  User2Icon,
+  UserIcon,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/lib/assets/Logo.svg";
@@ -83,12 +89,17 @@ export function Navbar({ className }: { className?: string }) {
             href={appState.userData ? undefined : "/logowanie"}
           >
             <div className="flex flex-col space-y-4 text-sm">
+              <HoveredLink onClick={() => {}} href="/moje-konto">
+                <User2Icon size={"1rem"} />
+                Panel konta
+              </HoveredLink>
               <HoveredLink
                 onClick={() => {
                   dispatchApp({ type: "LOGOUT" });
                 }}
                 href="#"
               >
+                <LogOutIcon size={"1rem"} />
                 Wyloguj się
               </HoveredLink>
             </div>

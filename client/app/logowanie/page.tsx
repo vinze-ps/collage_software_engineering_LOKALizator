@@ -42,7 +42,7 @@ const LogowaniePage = () => {
             className={"mb-4"}
             label={"Hasło"}
           />
-          <Link className={"disabled mb-4 text-primary"} href={"#"}>
+          <Link className={"disabled mb-4 text-primary text-sm"} href={"#"}>
             Przypomnij hasło
           </Link>
           <Button type={"submit"} onClick={loginHandler} color={"primary"}>

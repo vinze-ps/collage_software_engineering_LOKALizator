@@ -1,9 +1,19 @@
+"use client";
 import React from "react";
 import { FilterIcon } from "lucide-react";
-import { Checkbox, CheckboxGroup } from "@nextui-org/react";
+import {
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Slider,
+  SliderValue,
+} from "@nextui-org/react";
 import { categories } from "@/mock_data/data.json";
 
 const Sidebar = () => {
+  const [value, setValue] = React.useState<SliderValue>([0, 10000]);
+
   return (
     <div
       className={
@@ -29,6 +39,25 @@ const Sidebar = () => {
           );
         })}
       </CheckboxGroup>
+      <RadioGroup value={"free"} className={"!mx-0 !mt-4 w-full"} label="Cena">
+        <Radio value="free">Darmowe</Radio>
+        <Radio value="free-and-paid">Darmowe i płatne</Radio>
+      </RadioGroup>
+      <div className="flex flex-col gap-2 w-full max-w-md items-start justify-center !ms-0 !mt-4">
+        <Slider
+          formatOptions={{ style: "currency", currency: "USD" }}
+          step={10}
+          maxValue={10000}
+          minValue={0}
+          value={value}
+          onChange={setValue}
+          className="max-w-md"
+        />
+        <p className="text-default-500 font-medium text-small">
+          Zakres cenowy:{" "}
+          {Array.isArray(value) && value.map((b) => `${b}zł`).join(" – ")}
+        </p>
+      </div>
     </div>
   );
 };

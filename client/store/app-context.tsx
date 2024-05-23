@@ -1,33 +1,44 @@
-import React, { createContext, useReducer, ReactNode, useContext } from 'react';
+import React, { createContext, useReducer, ReactNode, useContext } from "react";
+import { IUser } from "@/types";
 
-type Action = { type: 'INCREMENT' } | { type: 'DECREMENT' };
+type Action = {
+  type: "LOGIN" | "LOGOUT";
+  value?: any;
+};
 
 interface State {
-  count: number;
+  userData: IUser | null;
 }
 
 const initialState: State = {
-  count: 0,
+  userData: JSON.parse(localStorage.getItem("userData") || "null"),
 };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case 'INCREMENT':
-      return { count: state.count + 1 };
-    case 'DECREMENT':
-      return { count: state.count - 1 };
+    case "LOGIN":
+      localStorage.setItem("userData", JSON.stringify(action.value));
+      return {
+        ...state,
+        userData: action.value,
+      };
+    case "LOGOUT":
+      localStorage.removeItem("userData");
+      return {
+        ...state,
+        userData: null,
+      };
     default:
       return state;
   }
 };
 
-// Tworzenie kontekstu
 const AppContext = createContext<{
-  state: State;
-  dispatch: React.Dispatch<Action>;
+  appState: State;
+  dispatchApp: React.Dispatch<Action>;
 }>({
-  state: initialState,
-  dispatch: () => null,
+  appState: initialState,
+  dispatchApp: () => null,
 });
 
 interface AppProviderProps {
@@ -35,10 +46,10 @@ interface AppProviderProps {
 }
 
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [appState, dispatchApp] = useReducer(reducer, initialState);
 
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppContext.Provider value={{ appState, dispatchApp }}>
       {children}
     </AppContext.Provider>
   );
@@ -47,7 +58,7 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 const useAppContext = () => {
   const context = useContext(AppContext);
   if (!context) {
-    throw new Error('useAppContext musi być używany w AppProvider');
+    throw new Error("useAppContext musi być używany w AppProvider");
   }
   return context;
 };

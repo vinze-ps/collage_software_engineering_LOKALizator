@@ -19,14 +19,26 @@ export const MenuItem = ({
   icon,
   item,
   children,
+  href,
 }: {
   setActive: (item: string) => void;
   active: string | null;
   icon?: React.ReactNode;
   item: string;
   children?: React.ReactNode;
+  href?: string;
 }) => {
-  return (
+  return href ? (
+    <Link href={href}>
+      <motion.p
+        transition={{ duration: 0.3 }}
+        className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white flex gap-2 items-center text-sm"
+      >
+        {icon}
+        {item}
+      </motion.p>
+    </Link>
+  ) : (
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
@@ -72,7 +84,7 @@ export const Menu = ({
 }) => {
   return (
     <nav
-      onMouseLeave={() => setActive(null)} // resets the state
+      onMouseLeave={() => setActive(null)} // resets the appState
       className="shadow-sm relative rounded-lg dark:bg-black bg-white shadow-input flex justify-start space-x-4 px-8 py-2 items-center"
     >
       {children}

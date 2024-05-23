@@ -9,3 +9,9 @@ export interface IAd {
   location: string;
   date: string;
 }
+
+export interface IUser {
+  email: string;
+  name: string;
+  ads: IAd[];
+}

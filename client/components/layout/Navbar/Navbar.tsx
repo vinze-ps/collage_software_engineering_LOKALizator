@@ -12,9 +12,12 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/lib/assets/Logo.svg";
 import { Input } from "@nextui-org/react";
+import { useAppContext } from "@/store/app-context";
 
 export function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
+  const { appState, dispatchApp } = useAppContext();
+
   return (
     <div className={cn("w-full mx-auto z-50", className)}>
       <Menu setActive={setActive}>
@@ -77,10 +80,17 @@ export function Navbar({ className }: { className?: string }) {
             active={active}
             item="Moje konto"
             icon={<UserIcon className={"text-default-400"} size={"1rem"} />}
+            href={appState.userData ? undefined : "/logowanie"}
           >
             <div className="flex flex-col space-y-4 text-sm">
-              <HoveredLink href="/test1">Test1</HoveredLink>
-              <HoveredLink href="/test2">Test2</HoveredLink>
+              <HoveredLink
+                onClick={() => {
+                  dispatchApp({ type: "LOGOUT" });
+                }}
+                href="#"
+              >
+                Wyloguj się
+              </HoveredLink>
             </div>
           </MenuItem>
         </div>

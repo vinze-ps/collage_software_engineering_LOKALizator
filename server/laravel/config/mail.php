@@ -30,7 +30,8 @@ return [
     | your mailers below. You may also add additional mailers if needed.
     |
     | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2",
-    |            "postmark", "log", "array", "failover", "roundrobin"
+    |            "postmark", "resend", "log", "array",
+    |            "failover", "roundrobin"
     |
     */
 
@@ -45,7 +46,7 @@ return [
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
         'ses' => [
@@ -58,6 +59,10 @@ return [
             // 'client' => [
             //     'timeout' => 5,
             // ],
+        ],
+
+        'resend' => [
+            'transport' => 'resend',
         ],
 
         'sendmail' => [
@@ -82,6 +87,14 @@ return [
             ],
         ],
 
+        'roundrobin' => [
+            'transport' => 'roundrobin',
+            'mailers' => [
+                'ses',
+                'postmark',
+            ],
+        ],
+
     ],
 
     /*
@@ -90,14 +103,14 @@ return [
     |--------------------------------------------------------------------------
     |
     | You may wish for all emails sent by your application to be sent from
-    | the same address. Here you may specify a email and address that is
+    | the same address. Here you may specify a name and address that is
     | used globally for all emails that are sent by your application.
     |
     */
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'email' => env('MAIL_FROM_NAME', 'Example'),
+        'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
 ];

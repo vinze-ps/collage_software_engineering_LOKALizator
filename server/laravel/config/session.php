@@ -121,10 +121,9 @@ return [
     | Session Cookie Name
     |--------------------------------------------------------------------------
     |
-    | Here you may change the email of the session cookie that is created by
+    | Here you may change the name of the session cookie that is created by
     | the framework. Typically, you should not need to change this value
     | since doing so does not grant a meaningful security improvement.
-    |
     |
     */
 

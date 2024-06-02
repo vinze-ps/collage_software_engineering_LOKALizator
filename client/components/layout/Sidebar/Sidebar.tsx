@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <div
       className={
-        "shadow-sm relative dark:bg-black bg-white shadow-input items-start justify-start space-x-4 p-4 h-full w-auto rounded-lg flex flex-col gap-2 min-w-[240px]"
+        "shadow-sm relative dark:bg-black bg-white shadow-input items-start justify-start space-x-4 p-4 h-full w-auto rounded-xl flex flex-col gap-2 min-w-[240px]"
       }
     >
       <div className={"flex justify-center items-center gap-4"}>

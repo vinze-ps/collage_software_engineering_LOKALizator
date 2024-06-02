@@ -12,7 +12,7 @@ const AdListItem = ({ ad }: { ad: IAd }) => {
   return (
     <div
       className={
-        "flex w-full bg-background rounded-lg p-4 shadow-sm relative dark:bg-black bg-white shadow-input gap-4"
+        "flex w-full bg-background rounded-xl p-4 shadow-sm relative dark:bg-black bg-white shadow-input gap-4"
       }
     >
       <div>
@@ -75,7 +75,7 @@ const AdListItem = ({ ad }: { ad: IAd }) => {
       </div>
       <div
         className={
-          "min-w-[200px] w-[200px] h-[200px] bg-default-50 rounded-lg overflow-hidden"
+          "min-w-[200px] w-[200px] h-[200px] bg-default-50 rounded-xl overflow-hidden"
         }
       >
         <img

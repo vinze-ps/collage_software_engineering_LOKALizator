@@ -20,7 +20,7 @@ Route::post('/login', function (Request $request) {
         ]);
     }
 
-    return $user->createToken()->plainTextToken;
+    return $user->createToken('device')->plainTextToken;
 });
 
 Route::get('/user', function (Request $request) {

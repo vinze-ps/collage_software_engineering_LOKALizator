@@ -15,10 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->decimal('price', 10, 2);
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->decimal('price', 10, 2)->nullable();
+            $table->foreignId('user_id')->nullable()->default(null)->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->boolean('is_anonymous')->default(false);
             $table->timestamps();
         });
     }

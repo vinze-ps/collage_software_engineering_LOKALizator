@@ -18,12 +18,15 @@ class AdvertisementController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'price' => 'required|numeric',
+            'price' => 'numeric',
             'category_id' => 'required|exists:categories,id',
-            'is_anonymous' => 'boolean',
         ]);
 
-        $data['user_id'] = Auth::id();
+        if (Auth::check()) {
+            $data['user_id'] = Auth::id();
+        } else {
+            $data['user_id'] = null;
+        }
         return Advertisement::create($data);
     }
 
@@ -34,7 +37,10 @@ class AdvertisementController extends Controller
 
     public function update(Request $request, Advertisement $advertisement)
     {
-        $this->authorize('update', $advertisement);
+        $loggedUser = Auth::user();
+        if ($loggedUser->id != $advertisement->user()->id && !$loggedUser->isAdminOrModerator()) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
 
         $data = $request->validate([
             'title' => 'sometimes|string|max:255',
@@ -50,9 +56,13 @@ class AdvertisementController extends Controller
 
     public function destroy(Advertisement $advertisement)
     {
-        $this->authorize('delete', $advertisement);
+        $loggedUser = Auth::user();
+        if ($loggedUser->id != $advertisement->user_id && !$loggedUser->isAdminOrModerator()) {
+            return response()->json(['error' => 'Unauthorized'], 403);
+        }
 
         $advertisement->delete();
         return response()->json(['message' => 'Advertisement deleted successfully']);
     }
+
 }
